@@ -329,9 +329,7 @@ def fallback_detect_service(problem: str):
         "washer",
         "dishwasher",
         "microwave",
-        "oven",
-        "oven",
-        "washing machine"
+        "oven"
     ]
 
     if any(word in text for word in appliances):
@@ -345,7 +343,10 @@ def fallback_detect_service(problem: str):
     # AC
     # -----------------------------
 
-    if re.search(r"\bac\b|\bair conditioner\b|\bair conditioning\b", text):
+    if re.search(
+        r"\bac\b|\bair conditioner\b|\bair conditioning\b",
+        text
+    ):
         return {
             "service": "AC Repair",
             "confidence": 0.95,
@@ -569,6 +570,9 @@ def detect_service(problem: str):
             generation_config={
                 "temperature": 0,
                 "response_mime_type": "application/json"
+            },
+            request_options={
+                "timeout": 5
             }
         )
 
