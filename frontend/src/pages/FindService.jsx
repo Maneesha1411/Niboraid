@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./FindService.css";
+import API_URL from "../config";
 
 function FindService() {
   const navigate = useNavigate();
@@ -34,7 +35,7 @@ function FindService() {
       params.append("end_time", endTime);
 
       const response = await fetch(
-        `http://127.0.0.1:8000/workers?${params.toString()}`
+        `${API_URL}/workers?${params.toString()}`
       );
 
       const data = await response.json();
@@ -87,7 +88,7 @@ function FindService() {
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        "http://127.0.0.1:8000/ai/detect-service",
+        `${API_URL}/ai/detect-service`,
         {
           method: "POST",
           headers: {

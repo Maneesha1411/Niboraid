@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./MyBookings.css";
+import API_URL from "../config";
 
 function MyBookings() {
   const navigate = useNavigate();
@@ -27,7 +28,7 @@ function MyBookings() {
         }
 
         const response = await fetch(
-          "http://127.0.0.1:8000/customer/bookings",
+          `${API_URL}/customer/bookings`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -79,7 +80,7 @@ function MyBookings() {
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        `http://127.0.0.1:8000/customer/bookings/${bookingId}/cancel`,
+        `${API_URL}/customer/bookings/${bookingId}/cancel`,
         {
           method: "PATCH",
           headers: {
@@ -158,7 +159,7 @@ function MyBookings() {
       }
 
       const response = await fetch(
-        "http://127.0.0.1:8000/reviews",
+        `${API_URL}/reviews`,
         {
           method: "POST",
           headers: {

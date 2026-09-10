@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Availability.css";
-
+import API_URL from "../config";
 const DAYS = [
   "Monday",
   "Tuesday",
@@ -43,7 +43,7 @@ function Availability() {
         }
 
         const response = await fetch(
-          "http://127.0.0.1:8000/worker/availability",
+          `${API_URL}/worker/availability`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -190,7 +190,7 @@ function Availability() {
        * Get existing availability
        */
       const existingResponse = await fetch(
-        "http://127.0.0.1:8000/worker/availability",
+        `${API_URL}/auth/login`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -215,7 +215,7 @@ function Availability() {
        */
       for (const item of existingData) {
         const deleteResponse = await fetch(
-          `http://127.0.0.1:8000/worker/availability/${item.id}`,
+  `${API_URL}/worker/availability/${item.id}`,
           {
             method: "DELETE",
             headers: {
@@ -240,7 +240,7 @@ function Availability() {
        */
       for (const day of workingDays) {
         const response = await fetch(
-          "http://127.0.0.1:8000/worker/availability",
+          `${API_URL}/worker/availability`,
           {
             method: "POST",
             headers: {

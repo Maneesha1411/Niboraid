@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./WorkerBookings.css";
+import API_URL from "../config";
 
 function WorkerBookings() {
   const navigate = useNavigate();
@@ -24,7 +25,7 @@ function WorkerBookings() {
         }
 
         const response = await fetch(
-          "http://127.0.0.1:8000/worker/bookings",
+          `${API_URL}/worker/bookings`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -77,7 +78,7 @@ function WorkerBookings() {
       }
 
       const response = await fetch(
-        "http://127.0.0.1:8000/worker/bookings",
+        `${API_URL}/worker/bookings`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -122,7 +123,7 @@ function WorkerBookings() {
       }
 
       const response = await fetch(
-        `http://127.0.0.1:8000/worker/bookings/${bookingId}/status?status=${status}`,
+        `${API_URL}/worker/bookings/${bookingId}/status?status=${status}`,
         {
           method: "PATCH",
           headers: {
@@ -178,7 +179,7 @@ function WorkerBookings() {
       }
 
       const response = await fetch(
-        `http://127.0.0.1:8000/worker/bookings/${bookingId}/complete`,
+        `${API_URL}/worker/bookings/${bookingId}/complete`,
         {
           method: "PATCH",
           headers: {

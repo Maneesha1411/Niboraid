@@ -19,35 +19,15 @@ import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
 
 
-function Home() {
-  return (
-    <div>
-      <h1>NiborAid</h1>
-      <p>Your local service marketplace</p>
-
-      <a href="/login">
-        <button>Login</button>
-      </a>
-
-      <a href="/signup">
-        <button>Sign Up</button>
-      </a>
-    </div>
-  );
-}
-
-
 function App() {
   return (
     <BrowserRouter>
 
       <Routes>
-
-        <Route
-          path="/"
-          element={<Home />}
-        />
-
+          <Route
+  path="/"
+  element={<Login />}
+/>
         <Route
           path="/login"
           element={<Login />}

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./MyReviews.css";
+import API_URL from "../config";
 
 function MyReviews() {
   const navigate = useNavigate();
@@ -32,7 +33,7 @@ function MyReviews() {
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        "http://127.0.0.1:8000/reviews/my",
+        `${API_URL}/reviews/my`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -104,7 +105,7 @@ function MyReviews() {
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        "http://127.0.0.1:8000/reviews",
+        `${API_URL}/reviews`,
         {
           method: "POST",
 

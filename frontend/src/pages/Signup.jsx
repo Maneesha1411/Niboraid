@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Signup.css";
+import API_URL from "../config";
 
 function Signup() {
   const navigate = useNavigate();
@@ -46,7 +47,7 @@ function Signup() {
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/auth/register",
+        `${API_URL}/auth/register`,
         {
           method: "POST",
           headers: {

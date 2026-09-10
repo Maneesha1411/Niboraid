@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./EditWorkerProfile.css";
+import API_URL from "../config";
 
 function EditWorkerProfile() {
   const navigate = useNavigate();
@@ -50,7 +51,7 @@ function EditWorkerProfile() {
         // ----------------------------------------------------
 
         const meResponse = await fetch(
-          "http://127.0.0.1:8000/auth/me",
+          `${API_URL}/auth/me`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -68,7 +69,7 @@ function EditWorkerProfile() {
         // ----------------------------------------------------
 
         const servicesResponse = await fetch(
-          "http://127.0.0.1:8000/services"
+          `${API_URL}/services`
         );
 
         const servicesData =
@@ -86,7 +87,7 @@ function EditWorkerProfile() {
         // ----------------------------------------------------
 
         const workerResponse = await fetch(
-          "http://127.0.0.1:8000/workers/me",
+                `${API_URL}/workers/me`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -352,7 +353,7 @@ function EditWorkerProfile() {
       }
 
       const response = await fetch(
-        "http://127.0.0.1:8000/workers/profile",
+        `${API_URL}/workers/profile`,
         {
           method: "PUT",
           headers: {

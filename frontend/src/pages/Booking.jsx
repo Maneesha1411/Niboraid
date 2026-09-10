@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "./Booking.css";
-
+import API_URL from "../config";
 function Booking() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -92,7 +92,7 @@ function Booking() {
       }
 
       const servicesResponse = await fetch(
-        "http://127.0.0.1:8000/services"
+        `${API_URL}/services`,
       );
 
       const services =
@@ -127,7 +127,7 @@ function Booking() {
       }
 
       const response = await fetch(
-        "http://127.0.0.1:8000/bookings",
+        `${API_URL}/bookings`,
         {
           method: "POST",
 

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./WorkerProfile.css";
+import API_URL from "../config";
 
 const DAYS = [
   "Monday",
@@ -55,8 +56,8 @@ function WorkerProfile() {
         }
 
         const profileUrl = isOwnProfile
-          ? "http://127.0.0.1:8000/workers/me"
-          : `http://127.0.0.1:8000/workers/${workerId}`;
+          ? `${API_URL}/workers/me`
+          : `${API_URL}/workers/${workerId}`;
 
         const profileOptions = isOwnProfile
           ? {
@@ -89,7 +90,7 @@ function WorkerProfile() {
         const currentWorkerId = profileData.worker.id;
 
         const reviewsResponse = await fetch(
-          `http://127.0.0.1:8000/reviews/worker/${currentWorkerId}`
+          `${API_URL}/reviews/worker/${currentWorkerId}`
         );
 
         const reviews = await reviewsResponse.json();
