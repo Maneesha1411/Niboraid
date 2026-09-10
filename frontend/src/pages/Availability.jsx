@@ -43,7 +43,7 @@ function Availability() {
         }
 
         const response = await fetch(
-          `${API_URL}/worker/availability`,
+           `${API_URL}/worker/availability`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
