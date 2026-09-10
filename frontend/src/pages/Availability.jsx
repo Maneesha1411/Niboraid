@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Availability.css";
 import API_URL from "../config";
+
 const DAYS = [
   "Monday",
   "Tuesday",
@@ -43,7 +44,7 @@ function Availability() {
         }
 
         const response = await fetch(
-           `${API_URL}/worker/availability`,
+          `${API_URL}/worker/availability`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -190,7 +191,7 @@ function Availability() {
        * Get existing availability
        */
       const existingResponse = await fetch(
-        `${API_URL}/auth/login`,
+        `${API_URL}/worker/availability`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -215,7 +216,7 @@ function Availability() {
        */
       for (const item of existingData) {
         const deleteResponse = await fetch(
-  `${API_URL}/worker/availability/${item.id}`,
+          `${API_URL}/worker/availability/${item.id}`,
           {
             method: "DELETE",
             headers: {
@@ -343,7 +344,6 @@ function Availability() {
           </div>
         </div>
 
-
         <button
           className="availability-dashboard-btn"
           onClick={() =>
@@ -355,13 +355,11 @@ function Availability() {
 
       </nav>
 
-
       {/* ================================
           MAIN
       ================================= */}
 
       <main className="availability-container">
-
 
         {/* HEADER */}
 
@@ -385,14 +383,11 @@ function Availability() {
 
           </div>
 
-
           <div className="availability-header-icon">
             📅
           </div>
 
         </section>
-
-
 
         {/* WEEKLY SCHEDULE CARD */}
 
@@ -416,7 +411,6 @@ function Availability() {
             </div>
 
           </div>
-
 
           <div className="weekly-schedule">
 
@@ -455,7 +449,6 @@ function Availability() {
 
                 </button>
 
-
                 {/* TIMES */}
 
                 {item.enabled ? (
@@ -490,11 +483,9 @@ function Availability() {
 
                     </div>
 
-
                     <span className="time-separator">
                       →
                     </span>
-
 
                     <div className="time-field">
 
@@ -523,7 +514,6 @@ function Availability() {
                       </div>
 
                     </div>
-
 
                     <div className="schedule-preview">
 
@@ -555,7 +545,6 @@ function Availability() {
 
           </div>
 
-
           {/* HINT */}
 
           <div className="availability-hint">
@@ -571,7 +560,6 @@ function Availability() {
             </p>
 
           </div>
-
 
           {/* SAVE */}
 
@@ -603,7 +591,6 @@ function Availability() {
 
             </div>
 
-
             <button
               type="button"
               className="save-availability-btn"
@@ -626,8 +613,6 @@ function Availability() {
           </div>
 
         </section>
-
-
 
         {/* INFO CARD */}
 
@@ -658,8 +643,6 @@ function Availability() {
 
       </main>
 
-
-
       {/* SUCCESS / ERROR POPUP */}
 
       {message && (
@@ -680,7 +663,6 @@ function Availability() {
 
           </div>
 
-
           <div className="availability-toast-content">
 
             <strong>
@@ -696,7 +678,6 @@ function Availability() {
             </span>
 
           </div>
-
 
           <button
             className="availability-toast-close"
